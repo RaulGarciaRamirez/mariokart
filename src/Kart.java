@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Kart {
 	
@@ -74,5 +75,20 @@ public class Kart {
 		builder.append(acceleration);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(driver);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Kart))
+			return false;
+		Kart other = (Kart) obj;
+		return Objects.equals(driver, other.driver);
 	}
 }
