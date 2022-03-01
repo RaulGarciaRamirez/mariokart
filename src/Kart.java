@@ -3,7 +3,7 @@ public class Kart {
 	
 	private String driver;
 	private int speed, acceleration, position;
-	private double random = Math.random() * 10;
+	private double random = Math.random();
 	private static final int MAX_POINTS = 18;
 	private static final int MAX_RANDOM = 6;
 	
@@ -15,12 +15,12 @@ public class Kart {
 	
 	private void init() {
 		this.position = 0;
-		this.speed = (int) (Math.random() * MAX_POINTS);
+		this.speed = (int) (random * MAX_POINTS);
 		this.acceleration = MAX_POINTS - speed;
 	}
 	
 	public int move() {
-		return speed + acceleration + (int) (Math.random() * MAX_RANDOM);
+		return speed + acceleration + (int) (random * MAX_RANDOM);
 	}
 
 	public String getDriver() {
@@ -61,5 +61,18 @@ public class Kart {
 
 	public void setRandom(double random) {
 		this.random = random;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Kart [driver=");
+		builder.append(driver);
+		builder.append(", speed=");
+		builder.append(speed);
+		builder.append(", acceleration=");
+		builder.append(acceleration);
+		builder.append("]");
+		return builder.toString();
 	}
 }
